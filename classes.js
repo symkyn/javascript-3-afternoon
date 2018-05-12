@@ -29,6 +29,17 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
+class Employee {
+  constructor (first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget() {
+    return this.first_name + ' ' + this.last_name + ' Widget';
+  }
+}
 //Code Here
 
 
@@ -49,11 +60,25 @@
   Call your new class Manager
 */
 
+class Manager {
+  constructor (first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+  }
+  hire(employee) {
+    this.reports.push(employee);
+  }
+  fire(index) {
+    this.reports.splice(index,1);
+  }
+}
 //Code Here
 
 
-
-////////// PROBLEM 3 //////////
+///////// PROBLEM 3 //////////
 
 /*
   Managers for Widget Co. get promoted when they get more employees, and get a bonus when they fire employees.
@@ -75,6 +100,36 @@
   Call your new class ProgressiveManager
 */
 
+class ProgressiveManager {
+  constructor (first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+  hire(employee) {
+    this.reports.push(employee);
+    let employeeCount = this.reports.length;
+    if (employeeCount >= 1 && employeeCount < 4){
+      this.title = 'Barely Manager';
+    } else if (employeeCount >= 4 && employeeCount < 11) {
+      this.title = 'Mostly Manager';
+    } else if (employeeCount >= 11 && employeeCount < 51) {
+      this.title = 'Manager';
+    } else if (employeeCount >= 51 && employeeCount < 101) {
+      this.title = 'Manager Plus';
+    } else if (employeeCount >= 101) {
+      this.title = 'Bestest Manager';
+    }
+  }
+  fire(index) {
+    this.reports.splice(index,1);
+    this.bonus += 100;
+  }
+}
 //Code Here
 
 
@@ -103,5 +158,32 @@
 */
 
 //Code Here
+var rebootComplete = () => {return 'done';};
+
+
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(widgetsToMake) {
+    this.widgets_made_count += widgetsToMake;
+    this.wear_and_tear_count += Math.floor(widgetsToMake/50);;
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+
+  }
+  reboot() {
+    this.wear_and_tear_count -=10;
+    this.needs_reboot = false;
+    return rebootComplete();
+  }
+}
+
+
+
+
 
 
