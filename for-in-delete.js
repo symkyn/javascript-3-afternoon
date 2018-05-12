@@ -1,5 +1,6 @@
 /*
-  Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's test(s) are passing.
+  Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's 
+  test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
 
@@ -7,8 +8,10 @@
 */
 
 /*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+  First we'll look at the difference between accessing property values in a for in loop and accessing the property 
+  name in a for in loop.
+  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what 
+  prints in the console.
 */
 
 // var values = {
@@ -24,7 +27,8 @@
 // }
 
 /*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+  In this next example, we are accessing the property names themselves. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
 // for(var key in values) {
@@ -36,11 +40,16 @@
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the
+   concatenated string.
 */
 
 function showValues( obj ) {
-  //Code Here
+  let newString = '';
+  for(var key in obj) {
+    newString = newString + obj[key];    //Code Here
+}
+return newString;
 }
 
 
@@ -53,6 +62,14 @@ function showValues( obj ) {
   Return the updated object.
 */
 
+const greaterThan10 = (obj) => {
+  for(var key in obj) {
+    if (obj[key] > 10) {
+      obj[key] = 0;
+    }
+  }
+  return obj;
+}
 //Code Here
 
 
@@ -64,6 +81,13 @@ function showValues( obj ) {
   Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
   Return the updated object.
 */
+
+const double = (obj) => {
+  for(var key in obj) {
+    obj[key] *= 2;
+  }
+  return obj;
+}
 
 //Code Here
 
@@ -78,6 +102,16 @@ function showValues( obj ) {
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
+
+const secrets = (obj) => {
+  let newString = '';
+  for (var key in obj) {
+    if(key.slice(0,2) === 'sh'){
+      newString = newString + obj[key];
+    }
+  }
+  return newString;
+}
 
 //Code Here
 
@@ -109,6 +143,15 @@ function showValues( obj ) {
   Write a function called removePassword that takes in an object.
   Delete the property password and return the object.
 */
+
+const removePassword = (obj) => {
+  for (var key in obj) {
+    if(key === "password"){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 //Code Here
 
