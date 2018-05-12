@@ -169,8 +169,15 @@ var deleteTheBigNumbers = {
 // Do not edit the code above.
 
 /*
-  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater 
+  than 100.
 */
+
+for (var key in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[key] > 100){
+    delete deleteTheBigNumbers[key];
+  }
+}
 
 //Code Here
 
@@ -184,6 +191,15 @@ var deleteTheBigNumbers = {
   If any property name starts with k, delete that property.
   Return the updated object.
 */
+
+const startsWithK = (obj) => {
+  for(var key in obj) {
+    if(key.charAt(0) === 'k'){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 //Code Here
 
@@ -199,6 +215,15 @@ var deleteTheBigNumbers = {
 
   (hint: the method includes() may be of use...)
 */
+
+const hiddenTreasure = (obj) => {
+  for(var key in obj) {
+    if(!obj[key].includes('treasure')) {
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 //Code Here
 
