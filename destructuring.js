@@ -72,7 +72,12 @@ const totalPopulation = (obj) => {
 */
 
 //Code Here
-
+const ingredients = (obj) => {
+ let {carb, fat, protein} = obj;
+ let array = [];
+ array.push(carb, fat, protein);
+ return array; 
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -90,7 +95,15 @@ const totalPopulation = (obj) => {
 */
 
 //Code Here
-
+const largeNumbers = ({first, second, third}) => {
+  if (first < second && first < third) {
+    return first;
+  } else if (second < first && second < third) {
+    return second;
+  } else {
+    return third;
+  }
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -100,6 +113,16 @@ const totalPopulation = (obj) => {
   The object properties will be named a, b, and c and their values will be arrays of numbers.
   Find the longest array and return that array.
 */
+
+const numberGroups = ({a,b,c}) => {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  } else if (b.length > a.length && b.length > c.length) {
+    return b;
+  } else {
+    return c;
+  }
+}
 
 //Code Here
 
