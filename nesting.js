@@ -44,14 +44,32 @@ var employees = [
 // Do not edit the code above.
 
 /*
-  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
+  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array 
+  above and perform the following:
     1. If employee's first name is Theo, remove that employee because he just got fired.
     2. If the employee's first name is Lorie, change her department to 'HR'.
     3. Return the updated employee array.
 */
 
+const employeeUpdater = () => {
+  var newEmployees = []; 
+  for(var i = 0; i < employees.length; i++) {
+    if(employees[i]['firstName'] === 'Lorie'){
+      employees[i]['department'] = 'HR';
+    } 
+    if(employees[i]['firstName'] !== 'Theo') {
+      newEmployees.push(employees[i]);
+    }
+  }
+  employees = newEmployees;
+  return employees;
+}
+    
+  
+     
 //Code Here
-
+employeeUpdater()
+console.log(employees);
 
 
 ////////// PROBLEM 2 //////////
